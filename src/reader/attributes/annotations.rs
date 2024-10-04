@@ -31,12 +31,18 @@ impl<'input> FromAttribute<'input> for RuntimeInvisibleAnnotations<'input> {
 
 dec_structure! {
     pub struct RuntimeInvisibleParameterAnnotations<'input> into {
-        annotations: DecodeMany<'input, Annotation<'input>, u8>,
+        parameters: DecodeMany<'input, ParameterAnnotations<'input>, u8>,
     }
 }
 
 impl<'input> FromAttribute<'input> for RuntimeInvisibleParameterAnnotations<'input> {
     const NAME: &'static MStr = mutf8!("RuntimeInvisibleParameterAnnotations");
+}
+
+dec_structure! {
+    pub struct ParameterAnnotations<'input> {
+        annotations: DecodeMany<'input, Annotation<'input>, u16>,
+    }
 }
 
 dec_structure! {
@@ -61,7 +67,7 @@ impl<'input> FromAttribute<'input> for RuntimeVisibleAnnotations<'input> {
 
 dec_structure! {
     pub struct RuntimeVisibleParameterAnnotations<'input> into {
-        annotations: DecodeMany<'input, Annotation<'input>, u8>,
+        parameters: DecodeMany<'input, ParameterAnnotations<'input>, u8>,
     }
 }
 
