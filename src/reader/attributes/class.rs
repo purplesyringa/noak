@@ -69,8 +69,8 @@ impl<'input> FromAttribute<'input> for BootstrapMethods<'input> {
 
 dec_structure! {
     pub struct BootstrapMethod<'input> {
-        method_ref: cpool::Index<cpool::MethodRef<'input>>,
-        arguments: DecodeMany<'input, cpool::Index<cpool::MethodHandle<'input>>, u16>
+        method_ref: cpool::Index<cpool::MethodHandle<'input>>,
+        arguments: DecodeMany<'input, cpool::Index<cpool::Item<'input>>, u16>
     }
 }
 
