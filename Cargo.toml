@@ -1,6 +1,6 @@
 [package]
 name = "noak"
-version = "0.6.1"
+version = "0.6.2"
 authors = ["frozolotl <frozolotl@protonmail.com>"]
 categories = ["parser-implementations", "encoding"]
 description = "A library for reading and writing java class files"
