@@ -160,12 +160,12 @@ impl<Ctx: EncoderContext> InstructionWriter<Ctx> {
         Ok(self)
     }
 
-    pub fn checkcast<I>(&mut self, array_type: I) -> Result<&mut Self, EncodeError>
+    pub fn checkcast<I>(&mut self, type_: I) -> Result<&mut Self, EncodeError>
     where
         I: cpool::Insertable<cpool::Class>,
     {
-        let index = array_type.insert(&mut self.code_writer)?;
-        self.code_writer.encoder().write(0xbdu8)?.write(index)?;
+        let index = type_.insert(&mut self.code_writer)?;
+        self.code_writer.encoder().write(0xc0u8)?.write(index)?;
         Ok(self)
     }
 
