@@ -173,7 +173,7 @@ pub struct Index {
 
 impl Index {
     #[must_use]
-    pub(crate) fn new(index: u32) -> Index {
+    pub fn new(index: u32) -> Index {
         Index { index }
     }
 
