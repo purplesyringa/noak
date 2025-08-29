@@ -34,6 +34,11 @@ impl<'input> Code<'input> {
     }
 
     #[must_use]
+    pub fn byte_len(&self) -> u32 {
+        self.raw_instructions.decoder.bytes_remaining() as u32
+    }
+
+    #[must_use]
     pub fn raw_instructions(&self) -> RawInstructions<'input> {
         self.raw_instructions.clone()
     }
